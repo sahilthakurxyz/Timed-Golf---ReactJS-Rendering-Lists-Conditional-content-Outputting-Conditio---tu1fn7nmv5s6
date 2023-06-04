@@ -37,7 +37,7 @@ const Timer = () => {
         break;
       case "ArrowDown":
         setY((prevY) => {
-          if (prevY + step < window.innerHeight - 20) {
+          if (prevY + step <= window.innerHeight - 20) {
             return prevY + step;
           } else {
             return prevY;
