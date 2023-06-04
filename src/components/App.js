@@ -34,32 +34,29 @@ const Timer = () => {
             return prevY;
           }
         });
+
         break;
       case "ArrowDown":
         setY((prevY) => {
-          if (prevY + step <= window.innerHeight - 20) {
-            return prevY + step;
-          } else {
+          if (prevY + step >= window.innerHeight - 20) {
             return prevY;
+          } else {
+            return prevY + step;
           }
         });
         break;
       case "ArrowLeft":
         setX((prevX) => {
-          if (prevX - step >= 0) {
-            return prevX - step;
-          } else {
+          if (prevX - step < 0) {
             return prevX;
-          }
+          } else return prevX - step;
         });
         break;
       case "ArrowRight":
         setX((prevX) => {
-          if (prevX + step <= window.innerWidth - 20) {
+          if (prevX + step <= window.innerWidth) {
             return prevX + step;
-          } else {
-            return prevX;
-          }
+          } else return prevX;
         });
         break;
       default:
