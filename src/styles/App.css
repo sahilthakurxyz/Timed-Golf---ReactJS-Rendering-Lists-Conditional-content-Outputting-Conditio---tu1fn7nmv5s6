@@ -2,14 +2,22 @@
   position: absolute;
   top: 50px;
   left: 720px;
+  background-color: #202124;
+  color: #fff;
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Fredoka+One&family=Roboto:ital,wght@1,100&display=swap");
 
 .ballProvider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-family: "Fredoka One", cursive;
   background-color: #202124;
   color: white;
+  position: relative;
+  top: 60%;
+  /* left: 40%; */
   height: 30px;
   font-size: 15px;
   border-radius: 8px;
