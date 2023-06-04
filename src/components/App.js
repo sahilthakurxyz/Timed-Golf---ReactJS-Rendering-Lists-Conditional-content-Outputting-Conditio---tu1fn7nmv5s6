@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "../styles/App.css";
-const Timer = () => {
+const timerr = () => {
   let [gameStart, setGameStart] = useState(false);
-  let [time, setTime] = useState(0);
+  let [timer, settimer] = useState(0);
   let [y, setY] = useState(0);
   let [x, setX] = useState(0);
   const ballStyle = {
@@ -38,7 +38,7 @@ const Timer = () => {
         break;
       case "ArrowDown":
         setY((prevY) => {
-          if (prevY + step >= window.innerHeight) {
+          if (prevY + step >= window.innerHeight - 20) {
             return prevY;
           } else {
             return prevY + step;
@@ -47,14 +47,14 @@ const Timer = () => {
         break;
       case "ArrowLeft":
         setX((prevX) => {
-          if (prevX - step < 0) {
-            return prevX;
-          } else return prevX - step;
+          if (prevX - step >= 0) {
+            return prevX - step;
+          } else return prevX;
         });
         break;
       case "ArrowRight":
         setX((prevX) => {
-          if (prevX + step <= window.innerWidth) {
+          if (prevX + step <= window.innerWidth - 20) {
             return prevX + step;
           } else return prevX;
         });
@@ -67,7 +67,7 @@ const Timer = () => {
   useEffect(() => {
     if (gameStart) {
       const interval = setInterval(() => {
-        setTime((preTime) => preTime + 1);
+        settimer((pretimer) => pretimer + 1);
       }, 1000);
       return () => clearInterval(interval);
     }
@@ -95,12 +95,11 @@ const Timer = () => {
       <button className="start" disabled={gameStart} onClick={handleClickStart}>
         Start
       </button>
-      <div className="heading-timer">{time}s</div>
-
+      <div className="heading-timer">{timer}</div>
       <div className="ball" style={ballStyle}></div>
       <div className="hole" style={holeStyle}></div>
     </>
   );
 };
 
-export default Timer;
+export default timerr;
